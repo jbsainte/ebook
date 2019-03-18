@@ -1,27 +1,22 @@
-let fs = require('fs')
+let productsfunctions = require('./products-functions.js')
+let ordersfunctions = require('./orders-functions.js')
+var readline = require('readline');
 
+productsfunctions.getAllProducts();
 
-fs.readFile(`${__dirname}/products.json`, 'utf8', (err,file) => {
-    if (err) {
-        console.log("Error on reading file");
-        return false;
+var rl = readline.createInterface({input: process.stdin, output: process.stdout, terminal: false});
+
+console.log(__dirname, __filename)
+
+rl.on('line', function(line){
+    var regexSentence = /i want product \[[\d]\]/
+    var match = regexSentence.test(line);
+    if (!match) {
+        console.log('Error in order sentence')
     }
-
-    try{
-        let content = JSON.parse(file);
-
-        Object.keys(content.products).forEach(function(key){
-            //console.log(key, content.products[key]);
-            Object.keys(content.products[key]).forEach(function(keybis){
-                console.log(keybis, content.products[key][keybis])
-            });
-            for(prop in content.products[key]) {
-                if(!content.products[key].hasOwnProperty(prop)) continue;
-            
-                console.log(prop + " - "+ content.products[key][prop]);
-            }
-        });
-    } catch(e){
-        console.log(e);
+    else{
+        var regex = /[\d]/g;
+        var found = line.match(regex);
+        ordersfunctions.orderProductBydId(found) 
     }
-});
+})

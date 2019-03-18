@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link href="/style.css" type="text/css" rel="stylesheet" media="screen" property="stylesheet" />
+    </head>
+    <body>
+    <h2>Vous êtes à l'accueil</h2>
+    <ul>
+    <% for(var i=0; i < listingProducts.length; i++) { %>
+        <li><%= listingProducts[i].name %> - <%= listingProducts[i].EUR_price %>€ - <input type="button" class="buyit" value="COMMANDER" data-id="<%= listingProducts[i].id%>"></li>
+    <% } %>
+    <script
+            src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script>
+        $('.buyit').on('click', function(){
+            $.get( "order", { "id": $(this).data("id") } )
+            .done(function( data ) {
+                alert( data.result );
+            });
+        });
+    </script>
+    </ul>
+    </body>
+</html>
