@@ -1,0 +1,34 @@
+{
+    "products" : [
+        {
+            "id" : "0",
+            "name" : "Livre 1",
+            "description" : "Description Livre 1",
+            "USD_price" : 12.99,
+            "EUR_price": 11.5,
+            "file_link" : "https://www.google.com/var/livres/livre1.pdf",
+            "creation_date": "2015-03-02",
+            "orders_counter": 5 
+        },
+        {
+            "id" : "1",
+            "name" : "Livre 2",
+            "description" : "Description Livre 2",
+            "USD_price" : 18.99,
+            "EUR_price": 17,
+            "file_link" : "https://www.google.com/var/livres/livre2.pdf",
+            "creation_date": "1999-05-11",
+            "orders_counter": 21 
+        },
+        {
+            "id" : "2",
+            "name" : "Livre 3",
+            "description" : "Description Livre 3",
+            "USD_price" : 15.99,
+            "EUR_price": 13.2,
+            "file_link" : "https://www.google.com/var/livres/livre3.pdf",
+            "creation_date": "2006-10-25",
+            "orders_counter": 36
+        }
+    ]
+}
