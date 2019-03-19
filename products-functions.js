@@ -1,4 +1,6 @@
 let fs = require('fs')
+let mongoose = require('mongoose');
+let bookModel = require('./models/book')
 
 function getAllProductsDisplay(){
     fs.readFile(`${__dirname}/products.json`, 'utf8', (err,file) => {
@@ -54,4 +56,9 @@ function getAllProducts(callback){
     });
 }
 
+function getAllBooks(callback){
+    bookModel.find(callback)
+}
+
 module.exports.getAllProducts = getAllProducts;
+module.exports.getAllBooks = getAllBooks;

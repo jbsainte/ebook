@@ -1,0 +1,11 @@
+<% if ( typeof error != 'undefined') { %>
+  <p style="color:red"><%= error %></p>
+<% } %>
+<form action="/login" method="POST" class="login_form modal" id="ex2" style="display: inline-block;">
+      <h3>S'identifier pour commander</h3>
+      <p><label>Email:</label><input type="text" name="email"></p>
+      <p><label>Password:</label><input type="password" name="pwd"></p>
+      <p><input type="submit" value="Login"></p>
+      <a href="/register">S'inscrire</a>
+    <a href="#close-modal" rel="modal:close" class="close-modal ">Fermer</a>
+</form>
