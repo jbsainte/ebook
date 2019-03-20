@@ -60,5 +60,8 @@ function getAllBooks(callback){
     bookModel.find(callback)
 }
 
-module.exports.getAllProducts = getAllProducts;
-module.exports.getAllBooks = getAllBooks;
+module.exports = {
+    getAllProducts,
+    getAllBooks
+
+}

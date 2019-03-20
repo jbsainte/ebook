@@ -2,6 +2,7 @@
 <html>
     <head>
         <link href="/style.css" type="text/css" rel="stylesheet" media="screen" property="stylesheet" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <script
             src="https://code.jquery.com/jquery-3.3.1.min.js"
             integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -10,16 +11,21 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
     </head>
     <body>
-    <h2>Vous êtes à l'accueil</h2>
-    <ul>
-        <% for(var i=0; i < books.length; i++) { %>
-            <li><%= books[i].name %> - <%= books[i].EUR_price %>€ - <input type="button" class="buyit" value="COMMANDER" data-id="<%= books[i].id%>"></li>
-        <% } %>
-    </ul>
+    <div class="container">
+            <h2>Vous êtes à l'accueil</h2>
+                <% for(var i=0; i < books.length; i++) { %>
+                    <div class="row">
+                        <div class="col"><%= books[i].name %> - <%= books[i].EUR_price %>€ </div> <input type="button" class="buyit" value="COMMANDER" data-id="<%= books[i].id%>"></li>
+                    </div>
+                <% } %>
+            
 
-    <div class="modal">    
+            <div class="modal">    
+            </div>
     </div>
-
+    <a href="/auth/facebook">Login with Facebook</a><br/>
+    <a href="/auth/google">Sign In with Google</a><br/>
+    <a href="/register">S'inscrire</a><br/>
     <script>
         $('.buyit').on('click', function(event){
             $.get( "order", { "id": $(this).data("id") } )
@@ -34,6 +40,5 @@
             });
         });
     </script>
-    </ul>
     </body>
 </html>
